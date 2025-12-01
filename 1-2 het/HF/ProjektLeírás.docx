@@ -1,0 +1,23 @@
+A projekt egy Python alapú, fájlvezérelt kvízalkalmazás, amely különböző típusú kérdések megválaszolására és a felhasználó eredményének kiértékelésére szolgál.
+
+A kvíz teljes tartalma – a kérdések, válaszok, kérdéstípusok és opcionális regex minták – egy külső JSON fájlban található. A program betölti ezeket, feldolgozza, majd dinamikusan felteszi a kérdéseket a felhasználónak.
+
+A rendszer hét kérdéstípust támogat:
+
+Szöveges válasz (regex ellenőrzéssel)
+
+Egész szám
+
+Dátum (ISO formátum ellenőrzés)
+
+Lebegőpontos szám (tűréshatárral)
+
+Halmazos kérdés (hiányzó/felesleges elemek értékelése)
+
+Többválasztós kérdés (opciók véletlensorrendben)
+
+Igaz/Hamis
+
+A válaszok alapján a program részpontszámot is képes adni, például számszerű eltérés vagy részben helyes halmaz esetén. A kvíz végén a rendszer összegzi a pontokat, százalékos eredményt számol, majd az adatokat egy Kviz_Eredmenyek.json fájlba menti, dátummal és névvel együtt.
+
+A kód teljes egészében globális változók nélkül, egy Kviz osztályon belül működik, ami átláthatóvá és továbbfejleszthetővé teszi. A JSON fájl ékezetes típusneveit automatikus normalizálás alakítja át az Enum-értékekhez illeszkedő formára, így a program robusztusan működik különböző beviteli formátumokkal is.

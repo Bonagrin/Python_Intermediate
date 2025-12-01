@@ -1,0 +1,98 @@
+[
+    {
+        "kerdes": "A nap forog a Föld körül?",
+        "valasz": "HAMIS",
+        "tipus": "IGAZHAMIS",
+        "minta": null
+    },
+    {
+        "kerdes": "Mikor volt a Hindenburgi katasztrófa?",
+        "valasz": "1937, 1956, 1925, 1890",
+        "tipus": "TÖBBVÁLASZOS",
+        "minta": null
+    },
+    {
+        "kerdes": "Sorold fel a három elsődleges színt! (vesszővel elválasztva)",
+        "valasz": "piros, kék, sárga",
+        "tipus": "HALMAZOS",
+        "minta": null
+    },
+    {
+        "kerdes": "Add meg Pi értékét, 4 tizedesig",
+        "valasz": "3.1415",
+        "tipus": "LEBEGŐS",
+        "minta": null
+    },
+    {
+        "kerdes": "Mikor volt a kiegyezés, megkötése? (Forma: ÉÉÉÉ-HH-NN)",
+        "valasz": "1867-06-08",
+        "tipus": "DÁTUM",
+        "minta": null
+    },
+    {
+        "kerdes": "Mi magyarország fővárosa?",
+        "valasz": "Budapest",
+        "tipus": "SZÖVEGES",
+        "minta": "[Bb]udapest|[Pp]est|[Bb][Pp]|[bp]|[BP]"
+    },
+    {
+        "kerdes": "Melyik évben történt meg az első Holdraszállás?",
+        "valasz": "1969, 1959, 1979, 1989",
+        "tipus": "TÖBBVÁLASZOS",
+        "minta": null
+    },
+    {
+        "kerdes": "Mi a világ legnagyobb folyója?",
+        "valasz": "Amazonas",
+        "tipus": "SZÖVEGES",
+        "minta": "^([Aa]mazonas|mazonas|[Aa]mazonasz|mazonasz)$"
+    },
+    {
+        "kerdes": "Hány fokos a derékszög?",
+        "valasz": "90",
+        "tipus": "EGÉSZ_SZÁM",
+        "minta": null
+    },
+    {
+        "kerdes": "Mi a világ legnagyobb kontinense?",
+        "valasz": "Ázsia",
+        "tipus": "SZÖVEGES",
+        "minta": "^([ÁáAa]zsia)$"
+    },
+    {
+        "kerdes": "Mikor volt az Aranybulla? (Forma: ÉÉÉÉ-HH-NN)",
+        "valasz": "1222-04-24",
+        "tipus": "DÁTUM",
+        "minta": null
+    },
+    {
+        "kerdes": "25 m/s hány k/h?",
+        "valasz": "90",
+        "tipus": "EGÉSZ_SZÁM",
+        "minta": null
+    },
+    {
+        "kerdes": "Python halmazokban egy érték csak egyszer fordulhat elő?",
+        "valasz": "IGAZ",
+        "tipus": "IGAZHAMIS",
+        "minta": null
+    },
+    {
+        "kerdes": "Mi a világ legmagasabb hegycsúcsa?",
+        "valasz": "Mount Everest",
+        "tipus": "SZÖVEGES",
+        "minta": "^([Mm]ount[ -][Ee]verest)$"
+    },
+    {
+        "kerdes": "Hány bolygó található a naprendszerben?",
+        "valasz": "8",
+        "tipus": "EGÉSZ_SZÁM",
+        "minta": null
+    },
+    {
+        "kerdes": "Add meg e (Euler-féle szám) értékét, 2 tizedesig",
+        "valasz": "2.72",
+        "tipus": "LEBEGŐS",
+        "minta": null
+    }
+]
