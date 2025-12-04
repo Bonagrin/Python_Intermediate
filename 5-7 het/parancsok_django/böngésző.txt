@@ -1,0 +1,5 @@
+http://127.0.0.1:8000/
+http://127.0.0.1:8000/hello_django_app/
+
+http://127.0.0.1:8000/geography_app/
+http://127.0.0.1:8000/geography_app/country/add/

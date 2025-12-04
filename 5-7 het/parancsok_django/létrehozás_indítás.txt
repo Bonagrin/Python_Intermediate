@@ -1,0 +1,10 @@
+cmd
+
+site létrehozés:
+django-admin startproject <add_name>
+
+site létrehozása virtuális környezet nélkül:
+python -m django startproject <add_name>
+
+szerver indítása: 
+python manage.py runserver

@@ -1,0 +1,9 @@
+<name_app> - ban létrekell hozni az urls.py filet kézzel, nem generálódik ki
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    #path('country/add/', views.add_country),
+]

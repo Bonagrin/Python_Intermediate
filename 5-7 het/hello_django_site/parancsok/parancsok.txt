@@ -1,3 +1,0 @@
-cmd
-szerver indítása: 
-python manage.py runserver
