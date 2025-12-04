@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Gyümölcskészlet</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        input, button { padding: 8px; margin: 5px; font-size: 16px; }
+        button { background: #4CAF50; color: white; border: none; cursor: pointer; }
+        button:hover { background: #45a049; }
+        ul { padding-left: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Gyümölcskészlet</h1>
+
+    <ul id="gyumolcsok">
+        <!-- ide kerül a lista -->
+    </ul>
+
+    <div>
+        Fajta: <input type="text" id="fajta" placeholder="pl. körte"><br><br>
+        Darab: <input type="number" id="darab" value="1"><br><br>
+        <button onclick="elkuld()">Elküld</button>
+    </div>
+
+    <script>
+        const url = 'http://localhost:8080/gyumolcs';
+
+        function lekerdez() {
+            fetch(url)
+                .then(r => r.json())
+                .then(adatok => frissitLista(adatok));
+        }
+
+        function elkuld() {
+            const fajta = document.getElementById('fajta').value.trim();
+            const darab = parseInt(document.getElementById('darab').value) || 0;
+
+            if (!fajta) return alert("Írd be a fajtát!");
+
+            fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ fajta, darab })
+            })
+            .then(r => r.json())
+            .then(adatok => frissitLista(adatok));
+        }
+
+        function frissitLista(gyumolcsok) {
+            const lista = document.getElementById('gyumolcsok');
+            lista.innerHTML = '';   // kiürítjük
+
+            for (const [nev, db] of Object.entries(gyumolcsok)) {
+                const li = document.createElement('li');
+                li.textContent = `${nev}: ${db}`;
+                lista.appendChild(li);
+            }
+        }
+
+        // induláskor azonnal betölti
+        lekerdez();
+    </script>
+</body>
+</html>
