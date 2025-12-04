@@ -1,0 +1,17 @@
+https://sqlite.org/download.html
+
+
+db fileok megnyitása az .exe fileval
+. open <path>/db.sqlite3
+. tables
+select * from geography_app_country;
+select * from geography_app_city;
+
+
+mysql
+DBeaver -> localhost -> Databases -> geography
+
+pip install mysqlclient
+python manage.py migrate
+
+python manage.py runserver
