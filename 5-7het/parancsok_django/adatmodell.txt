@@ -1,0 +1,33 @@
+cmd
+python manage.py migrate
+
+file:
+<name_app>/models.py -> paraméterezés kézzel
+
+adattáblák létrehozása sqliteba defaultan
+cmd
+python manage.py makemigrations geography_app
+
+python manage.py sqlmigrate geography_app 0001
+
+python manage.py migrate
+
+adatbázis feltöltése:
+python manage.py shell
+
+from geography_app.models import Country, City
+
+magyarorszag = Country(name="Magyarország", eu_member=True)
+magyarorszag.save()
+
+ausztria = Country(name="Ausztria", eu_member=True)
+ausztria.save()
+
+szerbia = Country(name="Szerbia", eu_member=False)
+szerbia.save()
+
+magyarorszag.id
+
+Country.objects.all()
+
+Country.objects.get(id=2)
