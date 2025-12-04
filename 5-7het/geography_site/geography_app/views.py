@@ -1,7 +1,12 @@
 from django.http import HttpResponse
+from django.template import loader
+from geography_app.models import Country, City
 
 def index(request):
-    return HttpResponse('Index')
+    return HttpResponse(loader.get_template('index.html').render({
+        'countries': Country.objects.all(),
+        'cities': City.objects.all(),
+    }, request))
 
 def add_country(request):
     return HttpResponse('add_country')

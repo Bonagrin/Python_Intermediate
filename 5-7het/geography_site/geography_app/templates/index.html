@@ -1,0 +1,47 @@
+<h1>Országok</h1>
+
+<table border="1">
+  <tr>
+    <th>Név</th>
+    <th>EU tag</th>
+    <th>Módosítás</th>
+    <th>Törlés</th>
+  </tr>
+  {% for country in countries %}
+  <tr>
+    <td>{{ country.name }}</td>
+    <td>{% if country.eu_member %} igen {% else %} nem {% endif %}</td>
+    <td><a href="country/update/{{ country.id }}">módosít</a></td>
+    <td><a href="country/delete/{{ country.id }}">töröl</a></td>
+  </tr>
+  {% endfor %}
+</table>
+
+<p>
+  <a href="country/add/">Országot hozzáad</a>
+</p>
+
+<h1>Városok</h1>
+
+<table border="1">
+  <tr>
+    <th>Név</th>
+    <th>Ország</th>
+    <th>Főváros</th>
+    <th>Módosítás</th>
+    <th>Törlés</th>
+  </tr>
+  {% for city in cities %}
+  <tr>
+    <td>{{ city.name }}</td>
+    <td>{{ city.country.name }}</td>
+    <td>{% if city.is_capital %} igen {% else %} nem {% endif %}</td>
+    <td><a href="city/update/{{ city.id }}">módosít</a></td>
+    <td><a href="city/delete/{{ city.id }}">töröl</a></td>
+  </tr>
+  {% endfor %}
+</table>
+
+<p>
+  <a href="city/add/">Várost hozzáad</a>
+</p>
