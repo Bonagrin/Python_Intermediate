@@ -1,0 +1,9 @@
+<h1>Országot {% if country %}módosít{% else %}hozzáad{% endif %}</h1>
+
+<form action="{% if country %}/geography_app/country/update/update_record/{{ country.id }}{% else %}/geography_app/country/add_record/{% endif %}" method="post">
+    {% csrf_token %}
+    Név: <input name="name" {% if country %}value="{{ country.name }}"{% endif %}><br>
+    EU-tag: <input type="checkbox" name="eu_member" {% if country and country.eu_member %}checked{% endif %}><br>
+    <br>
+    <input type="submit" value="{% if country %}Módosít{% else %}Hozzáad{% endif %}">
+</form>

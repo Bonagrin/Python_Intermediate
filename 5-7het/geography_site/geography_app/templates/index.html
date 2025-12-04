@@ -45,3 +45,10 @@
 <p>
   <a href="city/add/">Várost hozzáad</a>
 </p>
+
+<h1>EU országok fővárosai:</h1>
+<ul>
+    {% for eu_capital in eu_capitals %}
+        <li>{{eu_capital}}</li>
+    {% endfor %}
+</ul>

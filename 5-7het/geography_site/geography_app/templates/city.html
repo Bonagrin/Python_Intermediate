@@ -1,0 +1,15 @@
+<h1>Várost {% if city %}módosít{% else %}hozzáad{% endif %}</h1>
+
+<form action="{% if city %}/geography_app/city/update/update_record/{{ city.id }}{% else %}/geography_app/city/add/add_record/{% endif %}" method="post">
+    {% csrf_token %}
+    Név: <input name="name" {% if city %}value="{{ city.name }}"{% endif %}><br>
+    Főváros: <input type="checkbox" name="is_capital" {% if city and city.is_capital %}checked{% endif %}><br>
+    Ország:
+    <select name="country_id">
+        {% for country in countries %}
+            <option value="{{ country.id }}" {% if city and city.country.id == country.id %}selected{% endif %}>{{ country.name }}</option>
+        {% endfor %}
+    </select><br>
+    <br>
+    <input type="submit" value="{% if city %}Módosít{% else %}Hozzáad{% endif %}">
+</form>
