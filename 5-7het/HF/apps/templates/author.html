@@ -1,0 +1,29 @@
+<h1>Szerzőt {% if author %}módosít{% else %}hozzáad{% endif %}</h1>
+
+<style>
+    .form-input, input[type="text"] {
+        padding: 6px 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+    .btn, input[type="submit"] {
+        padding: 6px 10px;
+        border: 1px solid #ccc;
+        background: #f6f6f6;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+        margin-top: 6px;
+    }
+    .btn:hover { background:#eee }
+</style>
+
+<form action="{% if author %}/konyv_app/author/update/update_record/{{ author.id }}{% else %}/konyv_app/author/add_record/{% endif %}" method="post">
+        {% csrf_token %}
+        <label>Szerző:</label> <input class="form-input" name="name" type="text" {% if author %}value="{{ author.name }}"{% endif %}><br>
+        <br>
+        <input class="btn" type="submit" value="{% if author %}Módosít{% else %}Hozzáad{% endif %}">
+        <p><a href="/konyv_app/">Vissza</a></p>
+</form>

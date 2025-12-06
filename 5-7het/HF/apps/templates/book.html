@@ -1,0 +1,51 @@
+<h1>Könyvet {% if book %}módosít{% else %}hozzáad{% endif %}</h1>
+
+<style>
+  .form-input, input[type="text"], select {
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+
+  .btn, input[type="submit"] {
+    display: inline-block;
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    background: #f6f6f6;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 6px;
+  }
+
+  .btn:hover, input[type="submit"]:hover { background: #eee; }
+  .btn:active, input[type="submit"]:active { background: #e8e8e8; }
+  .btn[disabled], input[type="submit"][disabled] { opacity: 0.6; cursor: not-allowed; }
+  label { display: inline-block; margin-bottom: 6px; }
+  br { margin-bottom: 6px; }
+</style>
+
+{% if not authors %}
+    <p>Egyetlen szerző sincs megadva. Előbb adj meg egy szerzőt:</p>
+    <p><a href="/konyv_app/author/add/">Új szerző hozzáadása</a></p>
+    <p><a href="/konyv_app/">Vissza</a></p>
+{% else %}
+    <form action="{% if book %}/konyv_app/book/update/update_record/{{ book.id }}{% else %}/konyv_app/book/add/add_record/{% endif %}" method="post">
+        {% csrf_token %}
+        <label>Cím:</label>
+        <input class="form-input" type="text" name="name" {% if book %}value="{{ book.name }}"{% endif %}><br>
+        <label>ISBN:</label>
+        <input class="form-input" type="number" name="isbn" {% if book %}value="{{ book.isbn }}"{% endif %}><br>
+        <label>Szerző:</label>
+        <select class="form-input" name="author_id">
+            {% for author in authors %}
+                <option value="{{ author.id }}" {% if book and book.author.id == author.id %}selected{% endif %}>{{ author.name }}</option>
+            {% endfor %}
+        </select><br>
+        <br>
+        <input class="btn" type="submit" value="{% if book %}Módosít{% else %}Hozzáad{% endif %}">
+        <p><a href="/konyv_app/">Vissza</a></p>
+    </form>
+{% endif %}

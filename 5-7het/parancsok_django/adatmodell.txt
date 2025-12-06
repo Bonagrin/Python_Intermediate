@@ -1,5 +1,6 @@
 cmd
-python manage.py migrate
+python manage.py makemigrations
+>> python manage.py migrate
 
 file:
 <name_app>/models.py -> paraméterezés kézzel

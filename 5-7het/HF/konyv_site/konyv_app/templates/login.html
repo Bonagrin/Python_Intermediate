@@ -1,0 +1,46 @@
+<h1>Bejelentkezés</h1>
+
+<style>
+    .form-input,
+    input[type="text"],
+    input[type="password"],
+    select {
+        padding: 6px 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+        box-sizing: border-box;
+    }
+
+    .btn,
+    input[type="submit"] {
+        display: inline-block;
+        padding: 6px 10px;
+        border: 1px solid #ccc;
+        background: #f6f6f6;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+        margin-top: 6px;
+    }
+
+    .btn:hover,
+    input[type="submit"]:hover {
+        background: #eee;
+    }
+</style>
+
+<form method="post">
+    {% csrf_token %}
+    <label>Felhasználónév:</label><br>
+    <input class="form-input" type="text" name="username"><br>
+
+    <label>Jelszó:</label><br>
+    <input class="form-input" type="password" name="password"><br>
+
+    <input class="btn" type="submit" value="Bejelentkezés">
+</form>
+
+{% if error %}
+<p style="color:red;">{{ error }}</p>
+{% endif %}
